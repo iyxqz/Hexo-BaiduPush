@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>小康博客</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>当前百度SEO提交情况</h2>
+    <p>用于查看网址提交情况
+        <a href="/repush"><button type="button" class="btn btn-success">手动提交</button></a>
+        <a href="/logout"><button type="button" class="btn btn-danger">退出登录</button></a>
+    </p>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>提交时间</th>
+        <th>站长剩余次数</th>
+        <th>站长提交个数</th>
+        <th>熊掌号剩余次数</th>
+        <th>熊掌号推送个数</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for todo in content %}
+      <tr>
+        <td>{{ todo.time }}</td>
+        <td>{{ todo.master_remain }}</td>
+        <td>{{ todo.master_success }}</td>
+        <td>{{ todo.paw_remain }}</td>
+        <td>{{ todo.paw_success }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

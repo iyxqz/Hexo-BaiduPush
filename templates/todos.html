@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>todos</title>
+    <link rel="stylesheet" href="/static/style.css" type="text/css">
+  </head>
+  <body>
+    <div id="container">
+{#      <h1>{{ title }}</h1>#}
+{#      <form action="/todos" method="POST">#}
+{#        {% csrf_token %}#}
+{#        <input type="text" name="content" />#}
+{#        <input type="submit" value="新增" />#}
+{#      </form>#}
+      <ul>
+        {% for todo in content %}
+        <li>{{ todo }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
+
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" href="#{{ todo.id }}" aria-expanded="false" aria-controls="{{ todo.id }}">
+								{{ todo.time }}
+                                </a>
+							</h4>
+						</div>
+						<div id="{{ todo.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{ todo.id }}">
+							<div class="panel-body">
+								<div></div>
+							</div>
+						</div>
+					</div>
