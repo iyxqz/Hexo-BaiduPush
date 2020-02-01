@@ -40,17 +40,11 @@ def login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         print(username,password,666)
-
         try:
             user.login(email=username, password=password)
         except:
-            return render(request, 'login.html')
-        authenticated = leancloud.User.get_current().is_authenticated()
-        if authenticated:
-            return index(request)
-        else:
-            # session token 无效
-            return render(request, 'login.html')
+            return render(request, 'login.html',{"sign":'登录失败，账号或密码错误'})
+        return index(request)
 #注销登录
 def logout(request):
     user.logout()
